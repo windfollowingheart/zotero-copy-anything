@@ -1,0 +1,63 @@
+{
+  "name": "zotero-plugin-template",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Zotero Copy Anything",
+  "config": {
+    "addonName": "Zotero Copy Anything",
+    "addonID": "zoterocopyanything@euclpts.com",
+    "addonRef": "zoterocopyanything",
+    "addonInstance": "CopyAnything",
+    "prefsPrefix": "extensions.zotero.zoterocopyanything"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windfollowingheart/zotero-copy-anything.git"
+  },
+  "author": "windfollowingheart",
+  "bugs": {
+    "url": "https://github.com/windfollowingheart/zotero-copy-anything/issues"
+  },
+  "homepage": "https://github.com/windfollowingheart/zotero-copy-anything#readme",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "start": "zotero-plugin serve",
+    "build": "zotero-plugin build && tsc --noEmit",
+    "lint:check": "prettier --check . && eslint .",
+    "lint:fix": "prettier --write . && eslint . --fix",
+    "release": "zotero-plugin release",
+    "test": "zotero-plugin test",
+    "update-deps": "npm update --save"
+  },
+  "dependencies": {
+    "zotero-plugin-toolkit": "^5.1.0-beta.13"
+  },
+  "devDependencies": {
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.10.0",
+    "@zotero-plugin/eslint-config": "^0.6.7",
+    "chai": "^6.2.1",
+    "eslint": "^9.39.1",
+    "mocha": "^11.7.5",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "zotero-plugin-scaffold": "^0.8.1",
+    "zotero-types": "^4.1.0-beta.4"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "endOfLine": "lf",
+    "overrides": [
+      {
+        "files": [
+          "*.xhtml"
+        ],
+        "options": {
+          "htmlWhitespaceSensitivity": "css"
+        }
+      }
+    ]
+  }
+}
