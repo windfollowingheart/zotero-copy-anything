@@ -23,6 +23,16 @@ CTRL+V 可直接粘贴到浏览器
   <img src="asserts/3.png" width="100%" />
 </div>
 
+# Support Platform
+
+- Windows
+- MacOS
+- Linux
+
+## Linux
+
+need to install `xclip` and `wl-clipboard`
+
 # Features
 
 - Copy item attachment to clipboard.

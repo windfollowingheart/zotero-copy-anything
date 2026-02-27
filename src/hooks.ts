@@ -8,6 +8,7 @@ import {
 import { getString, initLocale } from "./utils/locale";
 import { registerPrefsScripts } from "./modules/preferenceScript";
 import { createZToolkit } from "./utils/ztoolkit";
+import { downloadBinaryFile } from "./modules/utils";
 
 async function onStartup() {
   await Promise.all([
@@ -68,27 +69,21 @@ async function onMainWindowLoad(win: _ZoteroTypes.MainWindow): Promise<void> {
     text: `[30%] ${getString("startup-begin")}`,
   });
 
-  // UIExampleFactory.registerStyleSheet(win);
-
   UIExampleFactory.registerRightClickMenuItem();
 
-  // UIExampleFactory.registerRightClickMenuPopup(win);
+  if (await downloadBinaryFile()) {
+    popupWin.changeLine({
+      progress: 100,
+      text: `[100%] ${getString("startup-finish")}`,
+    });
+  } else {
+    popupWin.changeLine({
+      progress: 100,
+      text: `[100%] init failed`,
+    });
+  }
 
-  // UIExampleFactory.registerWindowMenuWithSeparator();
-
-  // PromptExampleFactory.registerNormalCommandExample();
-
-  // PromptExampleFactory.registerAnonymousCommandExample(win);
-
-  // PromptExampleFactory.registerConditionalCommandExample();
-
-  popupWin.changeLine({
-    progress: 100,
-    text: `[100%] ${getString("startup-finish")}`,
-  });
   popupWin.startCloseTimer(5000);
-
-  // addon.hooks.onDialogEvents("dialogExample");
 }
 
 async function onMainWindowUnload(win: Window): Promise<void> {
