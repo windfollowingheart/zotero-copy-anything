@@ -17,6 +17,12 @@ CTRL+V 可直接粘贴到浏览器
   <img src="asserts/2.png" width="100%" />
 </div>
 
+如果文献没有同步到本地，无法复制
+
+<div align="center">
+  <img src="asserts/3.png" width="100%" />
+</div>
+
 # Features
 
 - Copy item attachment to clipboard.
