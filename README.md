@@ -5,6 +5,10 @@
 
 </div>
 
+# Download
+
+- [Zotero Copy Anything](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/v1.0.0/zotero-copy-anything.xpi)
+
 # How to use?
 
 <div align="center">
