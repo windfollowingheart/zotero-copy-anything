@@ -7,7 +7,7 @@
     "addonName": "Zotero Copy Anything",
     "addonID": "zoterocopyanything@euclpts.com",
     "addonRef": "zoterocopyanything",
-    "addonInstance": "CopyAnything",
+    "addonInstance": "ZoteroCopyAnything",
     "prefsPrefix": "extensions.zotero.zoterocopyanything"
   },
   "repository": {
