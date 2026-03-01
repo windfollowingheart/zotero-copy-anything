@@ -1,5 +1,5 @@
 <div align="center">
-  <!-- <img src="asserts/zotero-copy-anything.png" width="50%" /> -->
+  <img src="asserts/zotero-copy-anything.png" width="50%" />
 
 # Zotero Copy Anything
 
