@@ -70,6 +70,7 @@ async function onMainWindowLoad(win: _ZoteroTypes.MainWindow): Promise<void> {
   });
 
   UIExampleFactory.registerRightClickMenuItem();
+  UIExampleFactory.registerRightClickReadViewer();
 
   if (await downloadBinaryFile()) {
     popupWin.changeLine({

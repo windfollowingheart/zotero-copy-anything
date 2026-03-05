@@ -115,4 +115,38 @@ async function downloadBinaryFile(): Promise<boolean> {
   }
 }
 
-export { copyFiles, getBinaryFilePath, downloadBinaryFile };
+async function copyItems(items: Zotero.Item[]) {
+  const copyList: string[] = [];
+  for (const item of items) {
+    if (item.isAttachment()) {
+      copyList.push(item.getFilePath() as string);
+    } else {
+      const attachmentIds = item.getAttachments();
+      for (const attachmentId of attachmentIds) {
+        const attachmentItem = Zotero.Items.get(attachmentId);
+        if (attachmentItem.isAttachment()) {
+          copyList.push(attachmentItem.getFilePath() as string);
+        }
+      }
+    }
+  }
+  // console.log(copyList);
+  // 过滤掉不是.pdf的
+  const pdfList = copyList.filter((item) => item.endsWith(".pdf"));
+  // 判断文件是否在本地存在
+  const existList = (
+    await Promise.all(
+      pdfList.map(async (item) => ({
+        path: item,
+        exists: await IOUtils.exists(item),
+      })),
+    )
+  )
+    .filter(({ exists }) => exists)
+    .map(({ path }) => path);
+  console.log(existList);
+  // 复制文件
+  await copyFiles(existList);
+}
+
+export { copyFiles, getBinaryFilePath, downloadBinaryFile, copyItems };

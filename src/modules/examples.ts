@@ -1,5 +1,6 @@
 import { getLocaleID, getString } from "../utils/locale";
-import { copyFiles } from "./utils";
+import { copyItems } from "./utils";
+import { config } from "../../package.json";
 
 function example(
   target: any,
@@ -137,6 +138,28 @@ export class UIExampleFactory {
     doc.getElementById("zotero-item-pane-content")?.classList.add("makeItRed");
   }
 
+  static registerRightClickReadViewer() {
+    Zotero.Reader.registerEventListener(
+      "createViewContextMenu",
+      (event: any) => {
+        console.log(event);
+        const { append } = event;
+
+        append({
+          label: "Zotero Copy Anything",
+          onCommand: async () => {
+            const Zotero_Tabs = ztoolkit.getGlobal("Zotero_Tabs");
+            const item = Zotero.Reader.getByTabID(Zotero_Tabs.selectedID)._item;
+            await copyItems([item]);
+          },
+        });
+      },
+      config.addonID,
+    );
+
+    ztoolkit.log("WfhZoteroTools: Context menu registered successfully");
+  }
+
   @example
   static registerRightClickMenuItem() {
     const menuIcon = `chrome://${addon.data.config.addonRef}/content/icons/favicon@0.5x.png`;
@@ -146,41 +169,11 @@ export class UIExampleFactory {
       id: "zotero-itemmenu-zotero-copy-anything",
       label: getString("zotero-copy-anything-label"),
       commandListener: async (ev) => {
-        const copyList: string[] = [];
         const ZoteroPane = ztoolkit.getGlobal("ZoteroPane");
 
         const items = ZoteroPane.getSelectedItems();
 
-        for (const item of items) {
-          if (item.isAttachment()) {
-            copyList.push(item.getFilePath() as string);
-          } else {
-            const attachmentIds = item.getAttachments();
-            for (const attachmentId of attachmentIds) {
-              const attachmentItem = Zotero.Items.get(attachmentId);
-              if (attachmentItem.isAttachment()) {
-                copyList.push(attachmentItem.getFilePath() as string);
-              }
-            }
-          }
-        }
-        // console.log(copyList);
-        // 过滤掉不是.pdf的
-        const pdfList = copyList.filter((item) => item.endsWith(".pdf"));
-        // 判断文件是否在本地存在
-        const existList = (
-          await Promise.all(
-            pdfList.map(async (item) => ({
-              path: item,
-              exists: await IOUtils.exists(item),
-            })),
-          )
-        )
-          .filter(({ exists }) => exists)
-          .map(({ path }) => path);
-        console.log(existList);
-        // 复制文件
-        await copyFiles(existList);
+        await copyItems(items);
       },
       icon: menuIcon,
     });
