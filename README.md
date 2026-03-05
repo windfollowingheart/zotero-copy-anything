@@ -17,13 +17,13 @@
   <img src="asserts/4.png" width="100%" />
 </div>
 
-CTRL+V 可直接粘贴到浏览器
+CTRL+V can paste the attachment to the clipboard.
 
 <div align="center">
   <img src="asserts/2.png" width="100%" />
 </div>
 
-如果文献没有同步到本地，无法复制
+If the item is not synchronized to the local, it cannot be copied.
 
 <div align="center">
   <img src="asserts/3.png" width="100%" />
@@ -43,6 +43,7 @@ need to install `xclip` and `wl-clipboard`
 
 - Copy item attachment to clipboard.
 - Support multiple attachments copy.
+- Support multiple attachment formats.
 
 # Thanks
 
