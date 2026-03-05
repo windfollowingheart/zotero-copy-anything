@@ -14,6 +14,7 @@
 
 <div align="center">
   <img src="asserts/1.png" width="100%" />
+  <img src="asserts/4.png" width="100%" />
 </div>
 
 CTRL+V 可直接粘贴到浏览器
