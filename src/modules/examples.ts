@@ -156,8 +156,6 @@ export class UIExampleFactory {
       },
       config.addonID,
     );
-
-    ztoolkit.log("WfhZoteroTools: Context menu registered successfully");
   }
 
   @example

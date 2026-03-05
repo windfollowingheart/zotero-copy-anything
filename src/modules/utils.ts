@@ -132,7 +132,8 @@ async function copyItems(items: Zotero.Item[]) {
   }
   // console.log(copyList);
   // 过滤掉不是.pdf的
-  const pdfList = copyList.filter((item) => item.endsWith(".pdf"));
+  // const pdfList = copyList.filter((item) => item.endsWith(".pdf"));
+  const pdfList = copyList;
   // 判断文件是否在本地存在
   const existList = (
     await Promise.all(
