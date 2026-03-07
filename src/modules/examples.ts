@@ -157,14 +157,13 @@ export class UIExampleFactory {
       config.addonID,
     );
 
-    const menuID = Zotero.MenuManager.registerMenu({
+    Zotero.MenuManager.registerMenu({
       menuID: "your-menu",
       pluginID: config.addonID,
       target: "main/tab",
       menus: [
         {
           menuType: "menuitem",
-          // l10nID: getLocaleID("zoterocopyanything-your-menu-label"),
           l10nID: getLocaleID("zotero-copy-anything-tab-label"),
           onCommand: async (event, context) => {
             const items = context.items;
