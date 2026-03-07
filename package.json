@@ -5,7 +5,7 @@
   "description": "Zotero Copy Anything",
   "config": {
     "addonName": "Zotero Copy Anything",
-    "addonID": "zoterocopyanything@euclpts.com",
+    "addonID": "zoterocopyanything@example.com",
     "addonRef": "zoterocopyanything",
     "addonInstance": "ZoteroCopyAnything",
     "prefsPrefix": "extensions.zotero.zoterocopyanything"

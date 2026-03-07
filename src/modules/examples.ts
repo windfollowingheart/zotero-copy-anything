@@ -146,7 +146,7 @@ export class UIExampleFactory {
         const { append } = event;
 
         append({
-          label: "Zotero Copy Anything",
+          label: getString("zotero-copy-anything-read-viewer-label"),
           onCommand: async () => {
             const Zotero_Tabs = ztoolkit.getGlobal("Zotero_Tabs");
             const item = Zotero.Reader.getByTabID(Zotero_Tabs.selectedID)._item;
@@ -156,6 +156,23 @@ export class UIExampleFactory {
       },
       config.addonID,
     );
+
+    const menuID = Zotero.MenuManager.registerMenu({
+      menuID: "your-menu",
+      pluginID: config.addonID,
+      target: "main/tab",
+      menus: [
+        {
+          menuType: "menuitem",
+          // l10nID: getLocaleID("zoterocopyanything-your-menu-label"),
+          l10nID: getLocaleID("zotero-copy-anything-tab-label"),
+          onCommand: async (event, context) => {
+            const items = context.items;
+            await copyItems(items);
+          },
+        },
+      ],
+    });
   }
 
   @example

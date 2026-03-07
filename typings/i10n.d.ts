@@ -24,4 +24,6 @@ export type FluentMessageId =
   | 'startup-finish'
   | 'tabpanel-lib-tab-label'
   | 'tabpanel-reader-tab-label'
-  | 'zotero-copy-anything-label';
+  | 'zotero-copy-anything-label'
+  | 'zotero-copy-anything-read-viewer-label'
+  | 'zotero-copy-anything-tab-label';
