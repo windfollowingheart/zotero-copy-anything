@@ -1,6 +1,7 @@
 import { getLocaleID, getString } from "../utils/locale";
 import { copyItems } from "./utils";
 import { config } from "../../package.json";
+import { getPref } from "../utils/prefs";
 
 function example(
   target: any,
@@ -83,20 +84,23 @@ export class BasicExampleFactory {
 export class KeyExampleFactory {
   @example
   static registerShortcuts() {
-    // Register an event key for Alt+L
-    ztoolkit.Keyboard.register((ev, keyOptions) => {
+    ztoolkit.Keyboard.register(async (ev, keyOptions) => {
       ztoolkit.log(ev, keyOptions.keyboard);
-      if (keyOptions.keyboard?.equals("shift,l")) {
-        addon.hooks.onShortcuts("larger");
-      }
-      if (ev.shiftKey && ev.key === "S") {
-        addon.hooks.onShortcuts("smaller");
+      if (
+        keyOptions.keyboard?.equals(getPref("copy-shortcut")) &&
+        getPref("enable-copy-shortcut")
+      ) {
+        const ZoteroPane = ztoolkit.getGlobal("ZoteroPane");
+
+        const items = ZoteroPane.getSelectedItems();
+
+        await copyItems(items);
       }
     });
 
     new ztoolkit.ProgressWindow(addon.data.config.addonName)
       .createLine({
-        text: "Example Shortcuts: Alt+L/S/C",
+        text: "register copy shortcut",
         type: "success",
       })
       .show();
@@ -147,6 +151,7 @@ export class UIExampleFactory {
 
         append({
           label: getString("zotero-copy-anything-read-viewer-label"),
+          // label: "helo",
           onCommand: async () => {
             const Zotero_Tabs = ztoolkit.getGlobal("Zotero_Tabs");
             const item = Zotero.Reader.getByTabID(Zotero_Tabs.selectedID)._item;

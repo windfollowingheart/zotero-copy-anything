@@ -12,6 +12,8 @@
 
 # How to use?
 
+## Copy item attachment to clipboard.
+
 <div align="center">
   <img src="asserts/1.png" width="100%" />
   <img src="asserts/4.png" width="100%" />
@@ -27,6 +29,16 @@ If the item is not synchronized to the local, it cannot be copied.
 
 <div align="center">
   <img src="asserts/3.png" width="100%" />
+</div>
+
+## Register the copy shortcut.
+
+Click the "Register Copy Shortcut" button, and then press the shortcut key combination you want to use.
+
+This shortcut can only copy selected items.
+
+<div align="center">
+  <img src="asserts/5.png" width="100%" />
 </div>
 
 # Support Platform

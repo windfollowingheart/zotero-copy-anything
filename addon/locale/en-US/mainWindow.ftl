@@ -10,5 +10,5 @@ item-section-example2-button-tooltip =
     .tooltiptext = Unregister this section
 item-info-row-example-label = Example Row
 
-zotero-copy-anything-read-viewer-label = Zotero Copy Anything
+
 zotero-copy-anything-tab-label = Zotero Copy Anything

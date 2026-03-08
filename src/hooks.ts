@@ -19,11 +19,11 @@ async function onStartup() {
 
   initLocale();
 
-  // BasicExampleFactory.registerPrefs();
+  BasicExampleFactory.registerPrefs();
 
   // BasicExampleFactory.registerNotifier();
 
-  // KeyExampleFactory.registerShortcuts();
+  KeyExampleFactory.registerShortcuts();
 
   // await UIExampleFactory.registerExtraColumn();
 

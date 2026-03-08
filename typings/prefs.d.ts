@@ -7,7 +7,8 @@
 declare namespace _ZoteroTypes {
   interface Prefs {
     PluginPrefsMap: {
-      
+      "enable-copy-shortcut": boolean;
+      "copy-shortcut": string;
     };
   }
 }

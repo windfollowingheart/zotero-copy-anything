@@ -1,0 +1,31 @@
+<linkset>
+  <html:link rel="localization" href="__addonRef__-preferences.ftl" />
+</linkset>
+<groupbox
+  onload="Zotero.__addonInstance__.hooks.onPrefsEvent('load', { window });"
+>
+  <checkbox
+    id="zotero-prefpane-__addonRef__-enable-copy-shortcut"
+    preference="enable-copy-shortcut"
+    data-l10n-id="pref-enable-copy-shortcut"
+  />
+  <hbox style="align-items: center">
+    <div style="margin-right: 8px">Copy shortcut:</div>
+    <div id="zotero-prefpane-__addonRef__-copy-shortcut"></div>
+    <button
+      style="margin-left: 8px; cursor: pointer"
+      label="Register Copy Shortcut"
+      id="zotero-prefpane-__addonRef__-register-shortcut-button"
+    ></button>
+    <button
+      style="margin-left: 8px; cursor: pointer; display: none"
+      label="Confirm"
+      id="zotero-prefpane-__addonRef__-confirm-shortcut-button"
+    ></button>
+    <button
+      style="margin-left: 8px; cursor: pointer; display: none"
+      label="Cancel"
+      id="zotero-prefpane-__addonRef__-Cancel-shortcut-button"
+    ></button>
+  </hbox>
+</groupbox>
