@@ -7,8 +7,8 @@
 
 # Download
 
-- [github](https://github.com/windfollowingheart/zotero-copy-anything/releases/download/v1.0.0/zotero-copy-anything.xpi)
-- [gitee](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/v1.0.0/zotero-copy-anything.xpi)
+- [github](https://github.com/windfollowingheart/zotero-copy-anything/releases/download/v1.0.4/zotero-copy-anything.xpi)
+- [gitee](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/v1.0.4/zotero-copy-anything.xpi)
 
 # How to use?
 
@@ -40,6 +40,25 @@ This shortcut can only copy selected items.
 <div align="center">
   <img src="asserts/5.png" width="100%" />
 </div>
+
+## Download Binary File.
+
+The plugin requires binary files to run, which need to be downloaded from the internet. If the download fails, you can also manually download and place them in the specified directory. Then restart Zotero.
+
+### Get the specified directory
+
+`{ZOTERO_DATA_DIR}/zotero-copy-anything`
+`ZOTERO_DATA_DIR` can be obtained as follows:
+
+<div align="center">
+  <img src="asserts/6.png" width="100%" />
+</div>
+
+### Binary file download links
+
+- Windows: [windows](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/binary/copyfiles.exe)
+- MacOS: [macos](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/binary/copyfiles-mac)
+- Linux: [linux](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/binary/copyfiles-linux)
 
 # Support Platform
 
