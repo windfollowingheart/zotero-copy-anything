@@ -47,12 +47,13 @@ The plugin requires binary files to run, which need to be downloaded from the in
 
 ### Get the specified directory
 
-`{ZOTERO_DATA_DIR}/zotero-copy-anything`
+`{ZOTERO_DATA_DIR}/storage/zotero-copy-anything`
 `ZOTERO_DATA_DIR` can be obtained as follows:
 
 <div align="center">
   <img src="asserts/6.png" width="100%" />
 </div>
+if the directory: `zotero-copy-anything` does not exist, create it.
 
 ### Binary file download links
 
