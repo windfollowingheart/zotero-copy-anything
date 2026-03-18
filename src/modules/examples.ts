@@ -110,12 +110,12 @@ export class KeyExampleFactory {
       }
     });
 
-    new ztoolkit.ProgressWindow(addon.data.config.addonName)
-      .createLine({
-        text: "register copy shortcut",
-        type: "success",
-      })
-      .show();
+    // new ztoolkit.ProgressWindow(addon.data.config.addonName)
+    //   .createLine({
+    //     text: "register copy shortcut",
+    //     type: "success",
+    //   })
+    //   .show();
   }
 
   @example
