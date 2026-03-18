@@ -55,28 +55,29 @@ async function onMainWindowLoad(win: _ZoteroTypes.MainWindow): Promise<void> {
   const popupWin = new ztoolkit.ProgressWindow(addon.data.config.addonName, {
     closeOnClick: true,
     closeTime: -1,
-  })
-    .createLine({
-      text: getString("startup-begin"),
-      type: "default",
-      progress: 0,
-    })
-    .show();
-
-  await Zotero.Promise.delay(1000);
-  popupWin.changeLine({
-    progress: 30,
-    text: `[30%] ${getString("startup-begin")}`,
   });
+  //   .createLine({
+  //     text: getString("startup-begin"),
+  //     type: "default",
+  //     progress: 0,
+  //   })
+  //   .show();
+
+  // await Zotero.Promise.delay(1000);
+  // popupWin.changeLine({
+  //   progress: 30,
+  //   text: `[30%] ${getString("startup-begin")}`,
+  // });
 
   UIExampleFactory.registerRightClickMenuItem();
   UIExampleFactory.registerRightClickReadViewer();
 
   if (await downloadBinaryFile()) {
-    popupWin.changeLine({
-      progress: 100,
-      text: `[100%] ${getString("startup-finish")}`,
-    });
+    // popupWin.changeLine({
+    //   progress: 100,
+    //   text: `[100%] ${getString("startup-finish")}`,
+    // });
+    console.log(`[100%] ${getString("startup-finish")}`);
   } else {
     popupWin.changeLine({
       progress: 100,
@@ -84,7 +85,7 @@ async function onMainWindowLoad(win: _ZoteroTypes.MainWindow): Promise<void> {
     });
   }
 
-  popupWin.startCloseTimer(5000);
+  popupWin.startCloseTimer(2000);
 }
 
 async function onMainWindowUnload(win: Window): Promise<void> {

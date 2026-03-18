@@ -1,7 +1,7 @@
 {
   "name": "zotero-copy-anything",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Zotero Copy Anything",
   "config": {
     "addonName": "Zotero Copy Anything",

@@ -90,9 +90,21 @@ export class KeyExampleFactory {
         keyOptions.keyboard?.equals(getPref("copy-shortcut")) &&
         getPref("enable-copy-shortcut")
       ) {
+        // 优先尝试复制当前阅读器的pdf
+        const Zotero_Tabs = ztoolkit.getGlobal("Zotero_Tabs");
+        if (Zotero.Reader.getByTabID(Zotero_Tabs.selectedID)) {
+          const item = Zotero.Reader.getByTabID(Zotero_Tabs.selectedID)._item;
+          if (item) {
+            console.log("copy reader pdf !!!");
+            await copyItems([item]);
+            return;
+          }
+        }
+
         const ZoteroPane = ztoolkit.getGlobal("ZoteroPane");
 
         const items = ZoteroPane.getSelectedItems();
+        console.log("items: ", items);
 
         await copyItems(items);
       }
