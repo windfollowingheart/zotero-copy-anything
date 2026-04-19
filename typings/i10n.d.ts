@@ -14,6 +14,7 @@ export type FluentMessageId =
   | 'menuitem-submenulabel'
   | 'menupopup-label'
   | 'pref-enable-copy-shortcut'
+  | 'pref-manually-launch-executable-file'
   | 'prefs-table-detail'
   | 'prefs-table-title'
   | 'prefs-title'

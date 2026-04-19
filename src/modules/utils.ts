@@ -1,3 +1,5 @@
+import { getPref } from "../utils/prefs";
+
 async function copyFiles(filePaths: string[]) {
   const binaryFileInfo = await getBinaryFilePath();
   if (!binaryFileInfo.isExist) {
@@ -115,6 +117,90 @@ async function downloadBinaryFile(): Promise<boolean> {
   }
 }
 
+async function copyFilesByExternalExtension(filePaths: string[]) {
+  // 获取用户~目录
+  // This property is deprecated. use FileUtils.getDir("Home", []).path instead.
+  // const OS = Zotero.getMainWindow().OS;
+  // const home = OS.Constants.Path.homeDir;
+  const { FileUtils } = ChromeUtils.importESModule(
+    "resource://gre/modules/FileUtils.sys.mjs",
+  );
+  const home = FileUtils.getDir("Home", []).path;
+  const targetPath = PathUtils.join(
+    home,
+    "zotero-copy-anything",
+    "config.json",
+  );
+  console.log(targetPath);
+  if (!(await IOUtils.exists(targetPath))) {
+    new ztoolkit.ProgressWindow(addon.data.config.addonName)
+      .createLine({
+        text: "❌ Copy Failed!",
+        type: "error",
+        progress: 100,
+      })
+      .show();
+  }
+  const config = await IOUtils.readJSON(targetPath);
+  console.log(config);
+
+  const port = config.port;
+  console.log(port);
+  if (!port) {
+    console.log("Port not found");
+    new ztoolkit.ProgressWindow(addon.data.config.addonName)
+      .createLine({
+        text: "❌ Copy Failed!",
+        type: "error",
+        progress: 100,
+      })
+      .show();
+    return;
+  }
+  try {
+    // 发送http请求
+    const response = await fetch(`http://localhost:${port}/copyfiles`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        file_path_list: filePaths,
+      }),
+    });
+
+    if (!response.ok) {
+      console.log("Copy files failed");
+      new ztoolkit.ProgressWindow(addon.data.config.addonName)
+        .createLine({
+          text: "❌ Copy Failed!",
+          type: "error",
+          progress: 100,
+        })
+        .show();
+      return;
+    }
+    console.log(await response.json());
+
+    new ztoolkit.ProgressWindow(addon.data.config.addonName)
+      .createLine({
+        text: "✅ Copy Success!",
+        type: "success",
+        progress: 100,
+      })
+      .show();
+  } catch (error) {
+    console.log("Copy files failed", error);
+    new ztoolkit.ProgressWindow(addon.data.config.addonName)
+      .createLine({
+        text: "❌ Copy Failed!",
+        type: "error",
+        progress: 100,
+      })
+      .show();
+  }
+}
+
 async function copyItems(items: Zotero.Item[]) {
   const copyList: string[] = [];
   for (const item of items) {
@@ -147,7 +233,12 @@ async function copyItems(items: Zotero.Item[]) {
     .map(({ path }) => path);
   console.log(existList);
   // 复制文件
-  await copyFiles(existList);
+  if (getPref("manually-launch-executable-file")) {
+    await copyFilesByExternalExtension(existList);
+  } else {
+    await copyFiles(existList);
+  }
+  // await copyFilesByExternalExtension(existList);
 }
 
 /**

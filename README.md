@@ -77,6 +77,22 @@ need to install `xclip` and `wl-clipboard`
 - Support multiple attachments copy.
 - Support multiple attachment formats.
 
+# Manualually launch the executable file
+
+Due to permission limitations of Zotero, the API that uses plugins to spawn subprocesses and run external executable files is unstable. If errors occur during copying, try enabling this option.
+
+<div align="center">
+  <img src="asserts/7.png" width="100%" />
+</div>
+
+## Executable file download links
+
+only support windows currently
+
+- Windows: [windows](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/manual_executable/zotero-copy-anything.exe)
+
+Download the executable and start it. Then you can copy in Zotero software.
+
 # Thanks
 
 - [Zotero Plugin Template](https://github.com/windingwind/zotero-plugin-template)
