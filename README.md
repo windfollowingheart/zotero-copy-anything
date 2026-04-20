@@ -7,8 +7,8 @@
 
 # Download
 
-- [github](https://github.com/windfollowingheart/zotero-copy-anything/releases/download/v1.0.4/zotero-copy-anything.xpi)
-- [gitee](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/v1.0.4/zotero-copy-anything.xpi)
+- [github](https://github.com/windfollowingheart/zotero-copy-anything/releases/download/v1.0.7/zotero-copy-anything.xpi)
+- [gitee](https://gitee.com/windheartyolo/zotero-copy-anything/releases/download/v1.0.7/zotero-copy-anything.xpi)
 
 # How to use?
 
