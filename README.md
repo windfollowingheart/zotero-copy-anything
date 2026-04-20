@@ -93,6 +93,8 @@ only support windows currently
 
 Download the executable and start it. Then you can copy in Zotero software.
 
+Detail: [README_manual_exe.md](doc/README_manual_exe.md)
+
 # Thanks
 
 - [Zotero Plugin Template](https://github.com/windingwind/zotero-plugin-template)
