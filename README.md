@@ -95,6 +95,10 @@ Download the executable and start it. Then you can copy in Zotero software.
 
 Detail: [README_manual_exe.md](doc/README_manual_exe.md)
 
+# Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=windfollowingheart/zotero-copy-anything&type=Date)](https://star-history.com/#windfollowingheart/zotero-copy-anything&Date)
+
 # Thanks
 
 - [Zotero Plugin Template](https://github.com/windingwind/zotero-plugin-template)
